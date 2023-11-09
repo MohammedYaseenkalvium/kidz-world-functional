@@ -16,6 +16,7 @@ var items = [
     dollars: 4,
     cents: 59,
   },
+
   {
     name: "Matilda",
     quantity: 0,
@@ -124,6 +125,10 @@ function updatePrice() {
 cartButton.onclick = () => {
   updatePrice();
 
+  if(cartValue.innerText==0){
+    alert("Cart Empty")
+    return
+  }
 
   for (let index = 0; index < items.length; index++) {
     if (items[index].quantity != 0) {
@@ -135,6 +140,7 @@ cartButton.onclick = () => {
       );
     }
   }
+  
 
   console.log(
     "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
